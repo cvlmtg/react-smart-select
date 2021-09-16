@@ -101,9 +101,9 @@ The `onChange` callback receives three arguments:
   }
 ```
 
-* `value` is the current value (for single-mode selects) or the array of currently selected values (for multi-mode and toggle-mode select).
-* `selected` is the option the user just clicked.
-* `options` is the list of the select's options.
+* `value`: the current value (for single-mode selects) or the array of currently selected values (for multi-mode and toggle-mode select).
+* `selected`: the option the user just clicked.
+* `options`: the list of the select's options.
 
 ## Styling
 
@@ -223,19 +223,19 @@ function formatOption(option, selected) {
 
 Props you may want to specify include:
 
-- `onChange` subscribe to change events
-- `options` specify the options the user can select from
-- `value` control the current value
-- `className` optional class name for the component
-- `style` optional style for the component
-- `labelStyle` optional style for the select label
-- `dropdownStyle` optional style for the dropdown box
-- `optionStyle` optional style for each dropdown menu item
-- `formatLabel` a function invoked to get the label content. Can return a string or a React component
-- `formatOption`  a function invoked to get each option content. Can return a string or a React component
-- `disabled` disable the control
-- `multi` enable the multi-select mode
-- `toggle` enable the toggle-select mode.
+- `onChange`: subscribe to change events
+- `options`: specify the options the user can select from
+- `value`: control the current value
+- `className`: optional class name for the component
+- `style`: optional style for the component
+- `labelStyle`: optional style for the select label
+- `dropdownStyle`: optional style for the dropdown box
+- `optionStyle`: optional style for each dropdown menu item
+- `formatLabel`: a function invoked to get the label content. Can return a string or a React component
+- `formatOption`:  a function invoked to get each option content. Can return a string or a React component
+- `disabled`: disable the control
+- `multi`: enable the multi-select mode
+- `toggle`: enable the toggle-select mode.
 
 ## Licence
 
