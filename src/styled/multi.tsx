@@ -1,9 +1,9 @@
 import styled from 'styled-components';
-import Common from './common';
+import Option from './option';
 
 // ---------------------------------------------------------------------
 
-export default styled(Common)`
+export default styled(Option)`
 input[type=checkbox] + label .check {
   display: inline-block;
   position: relative;
