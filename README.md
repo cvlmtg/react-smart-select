@@ -17,6 +17,7 @@ A small, responsive and highly configurable React form control. **react-smart-se
 - Highly configurable styles
 - Beautiful default styles
 - Accessible WAI ARIA compliance
+- Powered by [popper](https://popper.js.org/) and [styled-components](https://styled-components.com/)
 
 ## Examples
 
