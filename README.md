@@ -73,7 +73,7 @@ Example usage:
 
 ```jsx
 import SmartSelect from 'react-smart-select';
-import React from 'react';
+import React, { useState } from 'react';
 
 const options = [
   { label: 'alice', value: 'alice' },
@@ -82,7 +82,7 @@ const options = [
   { label: 'dave', value: 'dave' }
 ];
 
-function Form() {
+export default function Form() {
   const [ value, onChange ] = useState();
 
   return (
@@ -168,6 +168,7 @@ Remember to declare your wrapped component *outside* any render method, as expla
 ```jsx
 import SmartSelect from 'react-smart-select';
 import styled from 'styled-components';
+import React, { useState } from 'react';
 
 const Styled = styled(SmartSelect)`
   font-family: 'Times New Roman', Time, serif;
@@ -178,7 +179,7 @@ const Styled = styled(SmartSelect)`
   }
 `;
 
-function StyledComponent() {
+export default function StyledComponent() {
   const [ value, onChange ] = useState();
 
   return (
