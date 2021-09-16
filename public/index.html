@@ -1,0 +1,62 @@
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <title>React Smart Select Demo</title>
+    <style>
+      body {
+        font-family: sans-serif;
+      }
+
+      #app {
+        max-width: 80%;
+        margin: 0 auto;
+        display: flex;
+        flex-wrap: wrap;
+      }
+
+      .box {
+        box-sizing: border-box;
+        display: inline-block;
+        flex: 0 0 auto;
+        padding: 10px;
+        width: 33%;
+      }
+
+      @media (max-width: 376px) {
+        #app {
+          flex-wrap: wrap;
+        }
+
+        .box {
+          width: 100%;
+        }
+      }
+
+      .smart-select.fancy-select {
+        font-family: 'Times New Roman', Time, serif;
+      }
+
+      .smart-select.fancy-select .rss-dropdown .rss-option:hover {
+        background-color: #dac281;
+        color: #efe8de;
+      }
+
+      .smart-select.fancy-select .rss-label {
+        justify-content: center;
+      }
+
+      .smart-select.fancy-select .rss-label em {
+        margin-left: 0.5em;
+      }
+
+      .smart-select.fancy-select .rss-label:after {
+        content: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script src="./bundle.js""></script>
+  </body>
+</html>
