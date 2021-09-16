@@ -85,10 +85,8 @@ function Form() {
   const [ value, onChange ] = useState();
 
   return (
-    <div>
-      <SmartSelect value={value} options={options}
-        onChange={onChange} />
-    </div>
+    <SmartSelect value={value} options={options}
+      onChange={onChange} />
   );
 }
 ```
