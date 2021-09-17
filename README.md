@@ -17,6 +17,7 @@ A small, responsive and highly configurable React form control. **react-smart-se
 - Highly configurable styles
 - Beautiful default styles
 - Accessible WAI ARIA compliance
+- Powered by [popper](https://popper.js.org/) and [styled-components](https://styled-components.com/)
 
 ## Examples
 
@@ -42,13 +43,13 @@ A more complex multi-select dropdown, where the first option is a "select / dese
 
 ### Group select
 
-With little effort it's possible to achieve advanced features like groups of options, where each group has a header that can select and deselect the whole group. You can find the code for this select in the demo app!
+With little effort it's possible to achieve advanced features like groups of options, where each group has a header that can select and deselect the whole group. You can find the code for this control in the demo app!
 
 ![group-gif](./images/group.gif)
 
 ### Fancy select
 
-This select just shows some of the style configurability achievable with react-smart-select.
+This control just shows some of the style configurability achievable with **react-smart-select**.
 
 ![fancy-gif](./images/fancy.gif)
 
@@ -72,7 +73,7 @@ Example usage:
 
 ```jsx
 import SmartSelect from 'react-smart-select';
-import React from 'react';
+import React, { useState } from 'react';
 
 const options = [
   { label: 'alice', value: 'alice' },
@@ -81,14 +82,12 @@ const options = [
   { label: 'dave', value: 'dave' }
 ];
 
-function Form() {
+export default function Form() {
   const [ value, onChange ] = useState();
 
   return (
-    <div>
-      <SmartSelect value={value} options={options}
-        onChange={onChange} />
-    </div>
+    <SmartSelect value={value} options={options}
+      onChange={onChange} />
   );
 }
 ```
@@ -101,9 +100,9 @@ The `onChange` callback receives three arguments:
   }
 ```
 
-* `value` is the current value (for single-mode selects) or the array of currently selected values (for multi-mode and toggle-mode select).
-* `selected` is the option the user just clicked.
-* `options` is the list of the select's options.
+* `value`: the current value (for single-select controls) or the array of currently selected values (for multi-select and toggle-select controls).
+* `selected`: the option the user just clicked.
+* `options`: the list of the select's options.
 
 ## Styling
 
@@ -169,6 +168,7 @@ Remember to declare your wrapped component *outside* any render method, as expla
 ```jsx
 import SmartSelect from 'react-smart-select';
 import styled from 'styled-components';
+import React, { useState } from 'react';
 
 const Styled = styled(SmartSelect)`
   font-family: 'Times New Roman', Time, serif;
@@ -179,7 +179,7 @@ const Styled = styled(SmartSelect)`
   }
 `;
 
-function StyledComponent() {
+export default function StyledComponent() {
   const [ value, onChange ] = useState();
 
   return (
@@ -193,7 +193,7 @@ function StyledComponent() {
 
 You can control not only the component style, but its content too. You can pass the `formatLabel` and `formatOptions` callbacks to control what will be printed in each element. These callbacks can return a string or a React component.
 
-The `formatLabel` function is called to format the content of the main select label. It is passed the current value and all the select's options. For single-mode selects, `value` is either the current selected value or `null` if nothing is selected, while for multi-mode selects it's the array of currently selected values or an empty array if nothing is selected.
+The `formatLabel` function is called to format the content of the main control label. It is passed the current value and all the control's options. For single-select controls, `value` is either the current selected value or `null` if nothing is selected, while for multi-select controls it's the array of currently selected values or an empty array if nothing is selected.
 
 ```js
 function formatLabel(value, options) {
@@ -223,19 +223,19 @@ function formatOption(option, selected) {
 
 Props you may want to specify include:
 
-- `onChange` subscribe to change events
-- `options` specify the options the user can select from
-- `value` control the current value
-- `className` optional class name for the component
-- `style` optional style for the component
-- `labelStyle` optional style for the select label
-- `dropdownStyle` optional style for the dropdown box
-- `optionStyle` optional style for each dropdown menu item
-- `formatLabel` a function invoked to get the label content. Can return a string or a React component
-- `formatOption`  a function invoked to get each option content. Can return a string or a React component
-- `disabled` disable the control
-- `multi` enable the multi-select mode
-- `toggle` enable the toggle-select mode.
+- `onChange`: subscribe to change events
+- `options`: specify the options the user can select from
+- `value`: control the current value
+- `className`: optional class name for the component
+- `style`: optional style for the component
+- `labelStyle`: optional style for the control label
+- `dropdownStyle`: optional style for the dropdown box
+- `optionStyle`: optional style for each dropdown menu item
+- `formatLabel`: a function invoked to get the label content. Can return a string or a React component
+- `formatOption`:  a function invoked to get each option content. Can return a string or a React component
+- `disabled`: disable the control
+- `multi`: enable the multi-select mode
+- `toggle`: enable the toggle-select mode.
 
 ## Licence
 

@@ -69,7 +69,7 @@ const SmartSelect: FunctionComponent<SelectProps> = (props) => {
       return;
     }
 
-    onChange(selected);
+    onChange(selected, selected, options);
     onToggle();
   }, [ options, value, multi, toggle, onToggle, onChange ]);
 
