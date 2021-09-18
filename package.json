@@ -1,6 +1,6 @@
 {
   "name": "react-smart-select",
-  "version": "1.0.0-beta.1",
+  "version": "1.0.0-beta.2",
   "description": "A very flexible and smart React select component",
   "author": "Matteo Cavalleri <cvlmtg@gmail.com>",
   "repository": {
@@ -44,7 +44,8 @@
     "watch": "dts watch"
   },
   "dependencies": {
-    "@popperjs/core": "^2.10.1"
+    "@popperjs/core": "^2.10.1",
+    "react-popper": "^2.2.5"
   },
   "peerDependencies": {
     "react": ">=17",
@@ -71,7 +72,6 @@
     "mocha": "^9.1.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "react-popper": "^2.2.5",
     "rollup-plugin-livereload": "^2.0.5",
     "rollup-plugin-serve": "^1.1.0",
     "size-limit": "^5.0.3",
