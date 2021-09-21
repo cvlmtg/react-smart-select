@@ -83,11 +83,11 @@
   "size-limit": [
     {
       "path": "dist/react-smart-select.cjs.production.min.js",
-      "limit": "10 KB"
+      "limit": "15 KB"
     },
     {
       "path": "dist/react-smart-select.esm.js",
-      "limit": "10 KB"
+      "limit": "15 KB"
     }
   ],
   "engines": {
