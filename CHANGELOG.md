@@ -1,3 +1,9 @@
+## [1.0.0] - 2021-09-21
+
+### Changed
+
+- First public version
+
 ## [1.0.0-beta.2] - 2021-09-18
 
 ### Fixed
