@@ -139,11 +139,11 @@ return (
 
 ### Stylesheets
 
-Another way to change the component's appearance is through stylesheets. **react-smart-select** define the `.smart-select` class, plus any additional ones you pass with the `className` prop. It also defines other classes on its main elements:
+Another way to change the component's appearance is through stylesheets. **react-smart-select** define the `smart-select` class, plus any additional ones you pass with the `className` prop. It also defines other classes on its main elements:
 
-* `.rss-label`
-* `.rss-dropdown`
-* `.rss-option`
+* `rss-label`
+* `rss-dropdown`
+* `rss-option`
 
 Defining your own styles allows you to style pseudo-elements too, which is not possibile using React's `style` props. For example:
 
@@ -160,7 +160,7 @@ Defining your own styles allows you to style pseudo-elements too, which is not p
 
 ### styled-components
 
-**react-smart-select** uses [styled-components](https://styled-components.com/) for its styles, so you can use its API to wrap it with your own styles.
+**react-smart-select** uses [styled-components](https://styled-components.com/) for its styles, so you can use its API to wrap the component with your own styles.
 
 Remember to declare your wrapped component *outside* any render method, as explained by styled-component's [FAQ](https://styled-components.com/docs/faqs#why-should-i-avoid-declaring-styled-components-in-the-render-method)
 
@@ -193,7 +193,7 @@ export default function StyledComponent() {
 
 You can control not only the component style, but its content too. You can pass the `formatLabel` and `formatOptions` callbacks to control what will be printed in each element. These callbacks can return a string or a React component.
 
-The `formatLabel` function is called to format the content of the main control label. It is passed the current value and all the control's options. For single-select controls, `value` is either the current selected value or `null` if nothing is selected, while for multi-select controls it's the array of currently selected values or an empty array if nothing is selected.
+The `formatLabel` function is called to format the content of the select's label. It is passed the current value and all the control's options. For single-select controls, `value` is either the current selected value or `null` if nothing is selected, while for multi-select controls it's the array of currently selected values or an empty array if nothing is selected.
 
 ```js
 function formatLabel(value, options) {
