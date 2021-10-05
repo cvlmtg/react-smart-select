@@ -1,3 +1,9 @@
+## [1.0.1] - 2021-10-05
+
+### Changed
+
+- Update dependencies
+
 ## [1.0.0] - 2021-09-21
 
 ### Changed
