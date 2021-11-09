@@ -1,3 +1,10 @@
+## [1.0.2] - 2021-11-09
+
+### Changed
+
+- Popper is now a peer dependency
+- Options' value can be any type, not just strings
+
 ## [1.0.1] - 2021-10-05
 
 ### Changed
