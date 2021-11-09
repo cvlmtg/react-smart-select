@@ -4,7 +4,7 @@ import type { ReactNode, CSSProperties, SyntheticEvent } from 'react';
 
 export type RSSOption = {
   label: string | ReactNode;
-  value: string;
+  value: any;
   [key: string]: any;
 };
 
