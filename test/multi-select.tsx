@@ -12,9 +12,9 @@ type WrapProps = Omit<SelectProps, 'options' | 'onChange'>
 
 const option  = { selector: `.${OPTION_CLASS}` };
 const options = [
-  { value: 'alice', label: 'alice' },
-  { value: 'bob', label: 'bob' },
-  { value: 'carol', label: 'carol' }
+  { value: 1, label: 'alice' },
+  { value: 2, label: 'bob' },
+  { value: 3, label: 'carol' }
 ];
 
 const WrapSelect: FunctionComponent<WrapProps> = (props) => {
@@ -62,8 +62,8 @@ describe('the multi select', () => {
 
   it('renders the default value (2)', () => {
     const edit = [
-      { value: 'carol', label: 'carol' },
-      { value: 'bob', label: 'bob' }
+      { value: 2, label: 'carol' },
+      { value: 3, label: 'bob' }
     ];
 
     render(<WrapSelect value={edit} />);

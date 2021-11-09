@@ -63,11 +63,11 @@ On small screens **react-smart-select** switches to a responsive layout.
 
 Install the library and its peer dependencies:
 
-`npm install --save-dev react-smart-select styled-components`
+`npm install --save-dev react-smart-select styled-components @popperjs/core react-popper`
 
 or:
 
-`yarn add --dev react-smart-select styled-components`
+`yarn add --dev react-smart-select styled-components @popperjs/core react-popper`
 
 Example usage:
 
