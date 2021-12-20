@@ -64,7 +64,7 @@
     "@types/react-dom": "^17.0.9",
     "@types/styled-components": "^5.1.16",
     "chai": "^4.3.4",
-    "dts-cli": "^0.20.0",
+    "dts-cli": "^1.1.0",
     "global-jsdom": "^8.4.0",
     "husky": "^7.0.2",
     "jsdom": "^19.0.0",
