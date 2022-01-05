@@ -1,3 +1,9 @@
+## [1.1.0] - 2022-01-05
+
+### Changed
+
+- Upgrade dts-cli to version 1.1.x
+
 ## [1.0.3] - 2021-11-09
 
 ### Fixed
