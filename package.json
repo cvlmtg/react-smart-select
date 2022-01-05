@@ -35,9 +35,9 @@
   ],
   "scripts": {
     "analyze": "size-limit --why",
-    "build": "dts build",
+    "build": "dts build --rollupTypes",
     "lint": "dts lint src/ test/ demo/",
-    "prepare": "dts build",
+    "prepare": "dts build --rollupTypes",
     "size": "size-limit",
     "start": "bash ./demo/start.sh",
     "test": "env NODE_ENV=test mocha --config mocha.json 'test/**/*.ts?(x)'",
