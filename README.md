@@ -100,7 +100,8 @@ The `onChange` callback receives three arguments:
   }
 ```
 
-* `value`: the current value (for single-select controls) or the array of currently selected values (for multi-select and toggle-select controls).
+* `value`: the current option (for single-select controls) or the array of currently selected 
+  options (for multi-select and toggle-select controls).
 * `selected`: the option the user just clicked.
 * `options`: the list of the select's options.
 
@@ -225,7 +226,7 @@ Props you may want to specify include:
 
 - `onChange`: subscribe to change events
 - `options`: specify the options the user can select from
-- `value`: control the current value
+- `value`: control the current option (i.e. the corresponding entry in the options array)
 - `className`: optional class name for the component
 - `style`: optional style for the component
 - `labelStyle`: optional style for the control label
