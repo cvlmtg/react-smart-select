@@ -30,8 +30,8 @@ const POPPER: Partial<Options> = {
 
 const SmartSelect: FunctionComponent<SelectProps> = (props) => {
   const {
-    formatLabel = utils.formatLabel,
     disabled = false,
+    placeholder,
     className,
     onChange,
     options,
@@ -47,6 +47,8 @@ const SmartSelect: FunctionComponent<SelectProps> = (props) => {
   const popper = useClickOutside(open ? onToggle : undefined);
 
   const [ ref, setReference ] = useState<HTMLElement | null>(null);
+
+  const formatLabel = props.formatLabel || utils.formatLabel(placeholder);
 
   const { styles, attributes, update } = usePopper(ref, popper.current, POPPER);
 

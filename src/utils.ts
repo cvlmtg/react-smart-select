@@ -1,4 +1,4 @@
-import type { RSSOption, RSSOptions, FormatLabel } from './typings';
+import type { RSSOption, RSSOptions, RSSLabel, FormatLabel } from './typings';
 
 // ---------------------------------------------------------------------
 
@@ -48,15 +48,23 @@ export const multi: UpdateFn = (values, selected) => {
   return updated;
 };
 
-export const formatLabel: FormatLabel = (value, options) => {
-  if (Array.isArray(value)) {
-    // we want to preserve options order
+export const formatLabel = (placeholder?: RSSLabel): FormatLabel => {
+  const empty = placeholder || ' ';
 
-    return options
-      .filter((o) => value.some((v) => v.value === o.value))
-      .map((o) => o.label)
-      .join(', ');
-  }
+  return (value, options) => {
+    if (Array.isArray(value)) {
+      // we want to preserve options order
 
-  return value ? value.label : ' ';
+      if (value.length === 0) {
+        return empty;
+      }
+
+      return options
+        .filter((o) => value.some((v) => v.value === o.value))
+        .map((o) => o.label)
+        .join(', ');
+    }
+
+    return value ? value.label : empty;
+  };
 };

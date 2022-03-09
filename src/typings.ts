@@ -2,8 +2,10 @@ import type { ReactNode, CSSProperties, SyntheticEvent } from 'react';
 
 // ---------------------------------------------------------------------
 
+export type RSSLabel = string | ReactNode;
+
 export type RSSOption = {
-  label: string | ReactNode;
+  label: RSSLabel;
   value: any;
   [key: string]: any;
 };
@@ -14,9 +16,9 @@ export type RSSValue = RSSOptions | RSSOption | null;
 
 export type EvtHandler = (evt?: SyntheticEvent) => void;
 
-export type FormatLabel = (value: RSSValue, options: RSSOptions) => ReactNode | string;
+export type FormatLabel = (value: RSSValue, options: RSSOptions) => RSSLabel;
 
-export type FormatOption = (option: RSSOption, selected: boolean) => ReactNode | string;
+export type FormatOption = (option: RSSOption, selected: boolean) => RSSLabel;
 
 export type ChangeHandler = (
   value: RSSValue,
@@ -28,6 +30,7 @@ export type SelectProps = {
   onChange: ChangeHandler;
   options: RSSOptions;
   value?: RSSValue;
+  placeholder?: RSSLabel;
   className?: string;
   style?: CSSProperties;
   labelStyle?: CSSProperties;
