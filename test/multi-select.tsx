@@ -18,11 +18,17 @@ const options = [
 ];
 
 const WrapSelect: FunctionComponent<WrapProps> = (props) => {
-  const [ state, setState ] = useState(props.value);
+  const { value, ...rest }  = props;
+  const [ state, setState ] = useState(value);
+
+  /* eslint-disable react/jsx-props-no-spreading */
 
   return (
-    <Select multi value={state} options={options} onChange={setState} />
+    <Select multi {...rest} value={state} options={options}
+      onChange={setState} />
   );
+
+  /* eslint-enable */
 };
 
 function isSelected(text: string) {
@@ -43,6 +49,17 @@ describe('the multi select', () => {
   it('renders an empty value', () => {
     render(<WrapSelect />);
 
+    expect(screen.queryByText('alice, bob, carol')).to.eq(null);
+
+    expect(isSelected('alice')).to.eq(false);
+    expect(isSelected('bob')).to.eq(false);
+    expect(isSelected('carol')).to.eq(false);
+  });
+
+  it('renders the placeholder value', () => {
+    render(<WrapSelect placeholder="foo" />);
+
+    expect(screen.queryByText('foo')).to.be.instanceof(HTMLElement);
     expect(screen.queryByText('alice, bob, carol')).to.eq(null);
 
     expect(isSelected('alice')).to.eq(false);
