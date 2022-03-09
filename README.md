@@ -209,13 +209,13 @@ Props you may want to specify include:
 - `multi`: enable the multi-select mode
 - `toggle`: enable the toggle-select mode.
 
-### Callbacks
+## Callbacks
 
 You can control not only the component style, but its content too. You can pass the `formatLabel` and `formatOptions` callbacks to control what will be printed in each element. These callbacks can return a string or a React component.
 
 The `formatLabel` function is called to format the content of the select's label. It is passed the current value and all the control's options. For single-select controls, `value` is either the current selected value or `null` if nothing is selected, while for multi-select controls it's the array of currently selected values or an empty array if nothing is selected.
 
-Please note that if you specify this callbacks the placeholder prop will be ignored, as it is now your responsibility to render the correct label when value is null or an empty array.
+Please note that if you specify this callbacks the placeholder prop will be ignored, as it is now your responsibility to render the correct label when `value` is null or an empty array.
 
 ```js
 function formatLabel(value, options) {
