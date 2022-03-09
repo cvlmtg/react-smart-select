@@ -190,11 +190,32 @@ export default function StyledComponent() {
 }
 ```
 
+## Props
+
+Props you may want to specify include:
+
+- `onChange`: subscribe to change events
+- `options`: specify the options the user can select from
+- `value`: control the current option (i.e. the corresponding entry in the options array)
+- `placeholder`: the placeholder value when no options are selected
+- `className`: optional class name for the component
+- `style`: optional style for the component
+- `labelStyle`: optional style for the control label
+- `dropdownStyle`: optional style for the dropdown box
+- `optionStyle`: optional style for each dropdown menu item
+- `formatLabel`: a function invoked to get the label content. Can return a string or a React component
+- `formatOption`:  a function invoked to get each option content. Can return a string or a React component
+- `disabled`: disable the control
+- `multi`: enable the multi-select mode
+- `toggle`: enable the toggle-select mode.
+
 ### Callbacks
 
 You can control not only the component style, but its content too. You can pass the `formatLabel` and `formatOptions` callbacks to control what will be printed in each element. These callbacks can return a string or a React component.
 
 The `formatLabel` function is called to format the content of the select's label. It is passed the current value and all the control's options. For single-select controls, `value` is either the current selected value or `null` if nothing is selected, while for multi-select controls it's the array of currently selected values or an empty array if nothing is selected.
+
+Please note that if you specify this callbacks the placeholder prop will be ignored, as it is now your responsibility to render the correct label when value is null or an empty array.
 
 ```js
 function formatLabel(value, options) {
@@ -219,24 +240,6 @@ function formatOption(option, selected) {
   return option.label;
 }
 ```
-
-## Props
-
-Props you may want to specify include:
-
-- `onChange`: subscribe to change events
-- `options`: specify the options the user can select from
-- `value`: control the current option (i.e. the corresponding entry in the options array)
-- `className`: optional class name for the component
-- `style`: optional style for the component
-- `labelStyle`: optional style for the control label
-- `dropdownStyle`: optional style for the dropdown box
-- `optionStyle`: optional style for each dropdown menu item
-- `formatLabel`: a function invoked to get the label content. Can return a string or a React component
-- `formatOption`:  a function invoked to get each option content. Can return a string or a React component
-- `disabled`: disable the control
-- `multi`: enable the multi-select mode
-- `toggle`: enable the toggle-select mode.
 
 ## Licence
 
