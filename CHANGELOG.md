@@ -1,3 +1,12 @@
+## [1.3.0] - 2022-05-11
+
+### Changed
+
+- Switched from popper-js to floating-ui
+- Bumped minimum node version to 14.x
+- Tested with React 18
+- Misc fixes and improvements
+
 ## [1.2.0] - 2022-03-09
 
 ### Added
