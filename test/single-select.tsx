@@ -101,6 +101,8 @@ describe('the single select', () => {
 
     await act(async () => {
       await events.click(screen.getByText('A', button));
+    });
+    await act(async () => {
       await events.click(screen.getByText('B', option));
     });
 
@@ -113,8 +115,14 @@ describe('the single select', () => {
 
     await act(async () => {
       await events.click(screen.getByText('A', button));
+    });
+    await act(async () => {
       await events.click(screen.getByText('B', option));
+    });
+    await act(async () => {
       await events.click(screen.getByText('B', button));
+    });
+    await act(async () => {
       await events.click(screen.getByText('A', option));
     });
 
@@ -127,6 +135,8 @@ describe('the single select', () => {
 
     await act(async () => {
       await events.click(screen.getByText('A', button));
+    });
+    await act(async () => {
       await events.click(screen.getByText('A', option));
     });
 

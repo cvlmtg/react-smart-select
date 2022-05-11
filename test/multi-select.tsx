@@ -108,8 +108,14 @@ describe('the multi select', () => {
 
     await act(async () => {
       await events.click(screen.getByText('alice, bob, carol'));
+    });
+    await act(async () => {
       await events.click(screen.getByText('alice', option));
+    });
+    await act(async () => {
       await events.click(screen.getByText('bob', option));
+    });
+    await act(async () => {
       await events.click(screen.getByText('carol', option));
     });
 
@@ -124,8 +130,14 @@ describe('the multi select', () => {
 
     await act(async () => {
       await events.click(document.getElementsByTagName('button')[0]);
+    });
+    await act(async () => {
       await events.click(screen.getByText('alice', option));
+    });
+    await act(async () => {
       await events.click(screen.getByText('carol', option));
+    });
+    await act(async () => {
       await events.click(screen.getByText('bob', option));
     });
 
@@ -141,6 +153,8 @@ describe('the multi select', () => {
 
     await act(async () => {
       await events.click(document.getElementsByTagName('button')[0]);
+    });
+    await act(async () => {
       await events.click(screen.getByText('bob', option));
     });
 
@@ -155,6 +169,8 @@ describe('the multi select', () => {
 
     await act(async () => {
       await events.click(screen.getByText('alice, bob, carol'));
+    });
+    await act(async () => {
       await events.click(screen.getByText('bob', option));
     });
 
@@ -169,7 +185,11 @@ describe('the multi select', () => {
 
     await act(async () => {
       await events.click(screen.getByText('alice, bob, carol'));
+    });
+    await act(async () => {
       await events.click(screen.getByText('bob', option));
+    });
+    await act(async () => {
       await events.click(screen.getByText('carol', option));
     });
 
@@ -184,7 +204,11 @@ describe('the multi select', () => {
 
     await act(async () => {
       await events.click(screen.getByText('alice, bob, carol'));
+    });
+    await act(async () => {
       await events.click(screen.getByText('bob', option));
+    });
+    await act(async () => {
       await events.click(screen.getByText('bob', option));
     });
 
@@ -199,8 +223,14 @@ describe('the multi select', () => {
 
     await act(async () => {
       await events.click(screen.getByText('alice, bob, carol'));
+    });
+    await act(async () => {
       await events.click(screen.getByText('bob', option));
+    });
+    await act(async () => {
       await events.click(screen.getByText('carol', option));
+    });
+    await act(async () => {
       await events.click(screen.getByText('bob', option));
     });
 
