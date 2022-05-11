@@ -1,15 +1,12 @@
 import { IGNORE_CLASS } from './constants';
 import { EvtHandler } from './typings';
 import {
-  useEffect, useCallback, useState, useMemo,
-  useRef, RefObject
+  useEffect, useCallback, useState, useMemo, RefObject
 } from 'react';
 
 // ---------------------------------------------------------------------
 
-export function useClickOutside(onClick?: EvtHandler): RefObject<any> {
-  const ref = useRef(null);
-
+export function useClickOutside<T>(ref: RefObject<T>, onClick?: EvtHandler): void {
   const handler = useCallback((evt) => {
     let source = evt.target;
     let check;
@@ -35,7 +32,7 @@ export function useClickOutside(onClick?: EvtHandler): RefObject<any> {
     if (typeof onClick === 'function') {
       onClick(evt);
     }
-  }, [ onClick ]);
+  }, [ ref, onClick ]);
 
   useEffect(() => {
     if (typeof onClick !== 'function') {
@@ -48,8 +45,6 @@ export function useClickOutside(onClick?: EvtHandler): RefObject<any> {
       document.removeEventListener('mousedown', handler, true);
     };
   }, [ handler, onClick ]);
-
-  return ref;
 }
 
 export function useToggle(initialValue = false): [ boolean, EvtHandler ] {

@@ -5,14 +5,13 @@ import Wrapper from './styled/wrapper';
 import Label from './styled/label';
 import Option from './option';
 import React, {
-  useLayoutEffect, useCallback, useState, FunctionComponent
+  useLayoutEffect, useCallback, FunctionComponent
 } from 'react';
 
 // ---------------------------------------------------------------------
 
+import { useFloating, shift, Placement } from '@floating-ui/react-dom';
 import { useToggle, useRandomId, useClickOutside } from './hooks';
-import type { Options } from '@popperjs/core';
-import { usePopper } from 'react-popper';
 import * as constants from './constants';
 import * as utils from './utils';
 
@@ -21,8 +20,10 @@ const SELECT_CLASS   = constants.SELECT_CLASS;
 const IGNORE_CLASS   = constants.IGNORE_CLASS;
 const LABEL_CLASS    = constants.LABEL_CLASS;
 
-const POPPER: Partial<Options> = {
-  placement: 'bottom-start'
+const placement = 'bottom-start' as Placement;
+const OPTIONS   = {
+  middleware: [ shift() ],
+  placement
 };
 
 // ---------------------------------------------------------------------
@@ -40,19 +41,13 @@ const SmartSelect: FunctionComponent<SelectProps> = (props) => {
     value = multi ? [] : null
   } = props;
 
-  const btnId = useRandomId();
-
-  const [ open, onToggle ] = useToggle();
-
-  const popper = useClickOutside(open ? onToggle : undefined);
-
-  const [ ref, setReference ] = useState<HTMLElement | null>(null);
+  const { x, y, refs, reference, floating, strategy, update } = useFloating(OPTIONS);
 
   const formatLabel = props.formatLabel || utils.formatLabel(placeholder);
 
-  const { styles, attributes, update } = usePopper(ref, popper.current, POPPER);
+  const [ open, onToggle ] = useToggle();
 
-  // -------------------------------------------------------------------
+  const btnId = useRandomId();
 
   const onClick = useCallback((evt) => {
     const index    = evt.currentTarget.dataset.index;
@@ -75,11 +70,18 @@ const SmartSelect: FunctionComponent<SelectProps> = (props) => {
     onToggle();
   }, [ options, value, multi, toggle, onToggle, onChange ]);
 
+  // -------------------------------------------------------------------
+
+  useClickOutside(refs.floating, open ? onToggle : undefined);
+
   useLayoutEffect(() => {
-    if (open === true && update !== null) {
+    const ref = refs.floating.current;
+
+    if (ref) {
+      ref.style.display = open ? 'block' : '';
       update();
     }
-  }, [ open, update ]);
+  }, [ open, refs, update ]);
 
   // -------------------------------------------------------------------
 
@@ -87,10 +89,6 @@ const SmartSelect: FunctionComponent<SelectProps> = (props) => {
   const labelClass = open ? `${LABEL_CLASS} ${IGNORE_CLASS}` : LABEL_CLASS;
   const label      = formatLabel(value, options);
   const hidden     = !open;
-  const dropdown   = {
-    ...props.dropdownStyle,
-    ...styles.popper
-  };
 
   const renderOption = (option: RSSOption, index: number) => {
     const formatOption = props.formatOption;
@@ -104,18 +102,26 @@ const SmartSelect: FunctionComponent<SelectProps> = (props) => {
     );
   };
 
+  const roundX   = x === null ? 0 : Math.round(x);
+  const roundY   = y === null ? 0 : Math.round(y);
+  const dropdown = {
+    ...props.dropdownStyle,
+    position: strategy,
+    left:     roundX,
+    top:      roundY
+  };
+
   return (
     <Wrapper className={wrapClass} style={props.style}>
-      <Label type="button" ref={setReference} id={btnId} className={labelClass}
+      <Label type="button" ref={reference} id={btnId} className={labelClass}
         aria-haspopup={true} aria-expanded={open} style={props.labelStyle}
         open={open} disabled={disabled} onClick={onToggle}>
         {label}
       </Label>
       <Background open={open} />
-      <Dropdown role="menu" ref={popper} className={DROPDOWN_CLASS}
+      <Dropdown role="menu" ref={floating} className={DROPDOWN_CLASS}
         aria-labelledby={btnId} aria-hidden={hidden}
-        open={open} style={dropdown}
-        {...attributes.popper}>
+        open={open} style={dropdown}>
         {options.map(renderOption)}
       </Dropdown>
     </Wrapper>
