@@ -8,44 +8,41 @@ import {
 // ---------------------------------------------------------------------
 
 export function useClickOutside(ref: RefObject<HTMLElement>, onClick?: EvtHandler): void {
-  const handler = useCallback((evt: MouseEvent) => {
-    let source = evt.target as HTMLElement;
-    let check;
-    let found;
-
-    if (ref.current === null) {
-      return;
-    }
-
-    while (source && source.parentNode) {
-      check  = source.classList.contains(IGNORE_CLASS) === true;
-      found  = source === ref.current || check;
-      source = source.parentNode as HTMLElement;
-
-      if (found === true) {
-        return;
-      }
-    }
-
-    evt.stopPropagation();
-    evt.preventDefault();
-
-    if (typeof onClick === 'function') {
-      onClick(evt);
-    }
-  }, [ ref, onClick ]);
-
   useEffect(() => {
     if (typeof onClick !== 'function') {
       return undefined;
     }
+
+    const handler = (evt: MouseEvent) => {
+      let source = evt.target as HTMLElement;
+      let check;
+      let found;
+
+      if (ref.current === null) {
+        return;
+      }
+
+      while (source && source.parentNode) {
+        check  = source.classList.contains(IGNORE_CLASS);
+        found  = source === ref.current || check === true;
+        source = source.parentNode as HTMLElement;
+
+        if (found === true) {
+          return;
+        }
+      }
+
+      evt.stopPropagation();
+      evt.preventDefault();
+      onClick(evt);
+    };
 
     document.addEventListener('mousedown', handler, true);
 
     return () => {
       document.removeEventListener('mousedown', handler, true);
     };
-  }, [ handler, onClick ]);
+  }, [ onClick, ref ]);
 }
 
 export function useToggle(initialValue = false): [ boolean, EvtHandler ] {
