@@ -1,7 +1,7 @@
 import React, { Fragment, useCallback, useState } from 'react';
 import SmartSelect from '../dist/react-smart-select.esm';
+import { createRoot } from 'react-dom/client';
 import styled from 'styled-components';
-import ReactDOM from 'react-dom';
 
 // ---------------------------------------------------------------------
 
@@ -314,6 +314,7 @@ function Demo() {
 // ---------------------------------------------------------------------
 
 const node = document.getElementById('app');
+const root = createRoot(node);
 const demo = (<Demo />);
 
-ReactDOM.render(demo, node);
+root.render(demo);

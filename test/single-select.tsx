@@ -1,6 +1,6 @@
+import { render, screen, cleanup, act } from '@testing-library/react';
 import { LABEL_CLASS, OPTION_CLASS } from '../src/constants';
 import React, { FunctionComponent, useState } from 'react';
-import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import Select from '../src/smart-select';
 import { expect } from 'chai';
@@ -40,11 +40,18 @@ const WrapSelect: FunctionComponent<WrapProps> = (props) => {
 // ---------------------------------------------------------------------
 
 describe('the single select', () => {
+  let events;
+
+  before(() => {
+    events = userEvent.setup();
+  });
+
   it('renders an empty value', () => {
     render(<WrapSelect />);
 
     expect(screen.queryByText('A', button)).to.eq(null);
     expect(screen.queryByText('B', button)).to.eq(null);
+    cleanup();
   });
 
   it('renders the placeholder value', () => {
@@ -53,6 +60,7 @@ describe('the single select', () => {
     expect(screen.queryByText('foo', button)).to.be.instanceof(HTMLElement);
     expect(screen.queryByText('A', button)).to.eq(null);
     expect(screen.queryByText('B', button)).to.eq(null);
+    cleanup();
   });
 
   it('renders an empty value with formatLabel', () => {
@@ -67,6 +75,7 @@ describe('the single select', () => {
     expect(screen.queryByText('foo', button)).to.eq(null);
     expect(screen.queryByText('A', button)).to.eq(null);
     expect(screen.queryByText('B', button)).to.eq(null);
+    cleanup();
   });
 
   it('renders the default value (1)', () => {
@@ -74,6 +83,7 @@ describe('the single select', () => {
 
     expect(screen.queryByText('A', button)).to.be.instanceof(HTMLElement);
     expect(screen.queryByText('B', button)).to.eq(null);
+    cleanup();
   });
 
   it('renders the default value (2)', () => {
@@ -83,35 +93,52 @@ describe('the single select', () => {
 
     expect(screen.queryByText('A', button)).to.eq(null);
     expect(screen.queryByText('B', button)).to.be.instanceof(HTMLElement);
+    cleanup();
   });
 
-  it('selects B', () => {
+  it('selects B', async () => {
     render(<WrapSelect value={first} />);
 
-    userEvent.click(screen.getByText('A', button));
-    userEvent.click(screen.getByText('B', option));
+    await act(async () => {
+      await events.click(screen.getByText('A', button));
+    });
+    await act(async () => {
+      await events.click(screen.getByText('B', option));
+    });
 
     expect(screen.queryByText('A', button)).to.eq(null);
     expect(screen.queryByText('B', button)).to.be.instanceof(HTMLElement);
   });
 
-  it('selects A (1)', () => {
+  it('selects A (1)', async () => {
     render(<WrapSelect value={first} />);
 
-    userEvent.click(screen.getByText('A', button));
-    userEvent.click(screen.getByText('B', option));
-    userEvent.click(screen.getByText('B', button));
-    userEvent.click(screen.getByText('A', option));
+    await act(async () => {
+      await events.click(screen.getByText('A', button));
+    });
+    await act(async () => {
+      await events.click(screen.getByText('B', option));
+    });
+    await act(async () => {
+      await events.click(screen.getByText('B', button));
+    });
+    await act(async () => {
+      await events.click(screen.getByText('A', option));
+    });
 
     expect(screen.queryByText('A', button)).to.be.instanceof(HTMLElement);
     expect(screen.queryByText('B', button)).to.eq(null);
   });
 
-  it('selects A (2)', () => {
+  it('selects A (2)', async () => {
     render(<WrapSelect value={first} />);
 
-    userEvent.click(screen.getByText('A', button));
-    userEvent.click(screen.getByText('A', option));
+    await act(async () => {
+      await events.click(screen.getByText('A', button));
+    });
+    await act(async () => {
+      await events.click(screen.getByText('A', option));
+    });
 
     expect(screen.queryByText('A', button)).to.be.instanceof(HTMLElement);
     expect(screen.queryByText('B', button)).to.eq(null);

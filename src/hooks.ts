@@ -2,16 +2,14 @@ import { IGNORE_CLASS } from './constants';
 import { EvtHandler } from './typings';
 import {
   useEffect, useCallback, useState, useMemo,
-  useRef, RefObject
+  RefObject, SyntheticEvent
 } from 'react';
 
 // ---------------------------------------------------------------------
 
-export function useClickOutside(onClick?: EvtHandler): RefObject<any> {
-  const ref = useRef(null);
-
-  const handler = useCallback((evt) => {
-    let source = evt.target;
+export function useClickOutside(ref: RefObject<HTMLElement>, onClick?: EvtHandler): void {
+  const handler = useCallback((evt: MouseEvent) => {
+    let source = evt.target as HTMLElement;
     let check;
     let found;
 
@@ -19,10 +17,10 @@ export function useClickOutside(onClick?: EvtHandler): RefObject<any> {
       return;
     }
 
-    while (source.parentNode) {
+    while (source && source.parentNode) {
       check  = source.classList.contains(IGNORE_CLASS) === true;
       found  = source === ref.current || check;
-      source = source.parentNode;
+      source = source.parentNode as HTMLElement;
 
       if (found === true) {
         return;
@@ -35,7 +33,7 @@ export function useClickOutside(onClick?: EvtHandler): RefObject<any> {
     if (typeof onClick === 'function') {
       onClick(evt);
     }
-  }, [ onClick ]);
+  }, [ ref, onClick ]);
 
   useEffect(() => {
     if (typeof onClick !== 'function') {
@@ -48,14 +46,12 @@ export function useClickOutside(onClick?: EvtHandler): RefObject<any> {
       document.removeEventListener('mousedown', handler, true);
     };
   }, [ handler, onClick ]);
-
-  return ref;
 }
 
 export function useToggle(initialValue = false): [ boolean, EvtHandler ] {
   const [ value, setValue ] = useState(initialValue);
 
-  const onToggle = useCallback((evt) => {
+  const onToggle = useCallback((evt?: Event | SyntheticEvent) => {
     if (evt) {
       evt.preventDefault();
     }

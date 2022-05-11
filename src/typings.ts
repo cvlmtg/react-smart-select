@@ -14,7 +14,7 @@ export type RSSOptions = Array<RSSOption>;
 
 export type RSSValue = RSSOptions | RSSOption | null;
 
-export type EvtHandler = (evt?: SyntheticEvent) => void;
+export type EvtHandler = (evt?: Event | SyntheticEvent) => void;
 
 export type FormatLabel = (value: RSSValue, options: RSSOptions) => RSSLabel;
 

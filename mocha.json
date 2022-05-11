@@ -1,7 +1,8 @@
 {
   "require": [
     "global-jsdom/register",
-    "ts-node/register"
+    "ts-node/register",
+    "mocha.js"
   ],
   "extension": [ "js", "jsx", "ts", "tsx" ],
   "checkLeaks": true,
