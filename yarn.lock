@@ -1609,14 +1609,21 @@
   resolved "https://registry.yarnpkg.com/@types/prop-types/-/prop-types-15.7.5.tgz#5f19d2b85a98e9558036f6a3cacc8819420f05cf"
   integrity sha512-JCB8C6SnDoQf0cNycqd/35A7MjcnK+ZTqE7judS6o7utxUCg6imJg3QK2qzHKszlTjcj2cn+NwMB2i96ubpj7w==
 
-"@types/react-dom@<18.0.0", "@types/react-dom@^17.0.13":
+"@types/react-dom@<18.0.0":
   version "17.0.16"
   resolved "https://registry.yarnpkg.com/@types/react-dom/-/react-dom-17.0.16.tgz#7caba93cf2806c51e64d620d8dff4bae57e06cc4"
   integrity sha512-DWcXf8EbMrO/gWnQU7Z88Ws/p16qxGpPyjTKTpmBSFKeE+HveVubqGO1CVK7FrwlWD5MuOcvh8gtd0/XO38NdQ==
   dependencies:
     "@types/react" "^17"
 
-"@types/react@*":
+"@types/react-dom@^18.0.3":
+  version "18.0.3"
+  resolved "https://registry.yarnpkg.com/@types/react-dom/-/react-dom-18.0.3.tgz#a022ea08c75a476fe5e96b675c3e673363853831"
+  integrity sha512-1RRW9kst+67gveJRYPxGmVy8eVJ05O43hg77G2j5m76/RFJtMbcfAs2viQ2UNsvvDg8F7OfQZx8qQcl6ymygaQ==
+  dependencies:
+    "@types/react" "*"
+
+"@types/react@*", "@types/react@^18.0.9":
   version "18.0.9"
   resolved "https://registry.yarnpkg.com/@types/react/-/react-18.0.9.tgz#d6712a38bd6cd83469603e7359511126f122e878"
   integrity sha512-9bjbg1hJHUm4De19L1cHiW0Jvx3geel6Qczhjd0qY5VKVE2X5+x77YxAepuCwVh4vrgZJdgEJw48zrhRIeF4Nw==
@@ -1625,7 +1632,7 @@
     "@types/scheduler" "*"
     csstype "^3.0.2"
 
-"@types/react@^17", "@types/react@^17.0.39":
+"@types/react@^17":
   version "17.0.45"
   resolved "https://registry.yarnpkg.com/@types/react/-/react-17.0.45.tgz#9b3d5b661fd26365fefef0e766a1c6c30ccf7b3f"
   integrity sha512-YfhQ22Lah2e3CHPsb93tRwIGNiSwkuz1/blk4e6QrWS0jQzCSNbGLtOEYhPg02W0yGTTmpajp7dCTbBAMN3qsg==
@@ -3113,9 +3120,9 @@ eslint-plugin-react@^7.29.4:
     string.prototype.matchall "^4.0.6"
 
 eslint-plugin-testing-library@^5.1.0:
-  version "5.4.0"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-testing-library/-/eslint-plugin-testing-library-5.4.0.tgz#614767a470bc9ffa4b4308cdbc31d3ec6f6a99ad"
-  integrity sha512-XjxIf4g33KaZXxRNbR33+0WcRQ/zt8N0R58IY6/kkHnrY6zPsC1gs3u5cTZr5eUmCZN/sjoPak3uF5vHGKg2wg==
+  version "5.5.0"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-testing-library/-/eslint-plugin-testing-library-5.5.0.tgz#ce43113dac5a5d93e8b0a8d9937983cdbf63f049"
+  integrity sha512-eWQ19l6uWL7LW8oeMyQVSGjVYFnBqk7DMHjadm0yOHBvX3Xi9OBrsNuxoAMdX4r7wlQ5WWpW46d+CB6FWFL/PQ==
   dependencies:
     "@typescript-eslint/utils" "^5.13.0"
 
@@ -4786,9 +4793,9 @@ magic-string@^0.25.7:
     sourcemap-codec "^1.4.8"
 
 magic-string@^0.26.1:
-  version "0.26.1"
-  resolved "https://registry.yarnpkg.com/magic-string/-/magic-string-0.26.1.tgz#ba9b651354fa9512474199acecf9c6dbe93f97fd"
-  integrity sha512-ndThHmvgtieXe8J/VGPjG+Apu7v7ItcD5mhEIvOscWjPF/ccOiLxHaSuCAS2G+3x4GKsAbT8u7zdyamupui8Tg==
+  version "0.26.2"
+  resolved "https://registry.yarnpkg.com/magic-string/-/magic-string-0.26.2.tgz#5331700e4158cd6befda738bb6b0c7b93c0d4432"
+  integrity sha512-NzzlXpclt5zAbmo6h6jNc8zl2gNRGHvmsZW4IvZhTC4W7k4OlLP+S5YLussa/r3ixNT66KOQfNORlXHSOy/X4A==
   dependencies:
     sourcemap-codec "^1.4.8"
 
@@ -5384,14 +5391,13 @@ randombytes@^2.1.0:
   dependencies:
     safe-buffer "^5.1.0"
 
-react-dom@^17.0.2:
-  version "17.0.2"
-  resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-17.0.2.tgz#ecffb6845e3ad8dbfcdc498f0d0a939736502c23"
-  integrity sha512-s4h96KtLDUQlsENhMn1ar8t2bEa+q/YAtj8pPPdIjPDGBDIVNsrD9aXNWqspUe6AzKCIG0C1HZZLqLV7qpOBGA==
+react-dom@^18.1.0:
+  version "18.1.0"
+  resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-18.1.0.tgz#7f6dd84b706408adde05e1df575b3a024d7e8a2f"
+  integrity sha512-fU1Txz7Budmvamp7bshe4Zi32d0ll7ect+ccxNu9FlObT605GOEB8BfO4tmRJ39R5Zj831VCpvQ05QPBW5yb+w==
   dependencies:
     loose-envify "^1.1.0"
-    object-assign "^4.1.1"
-    scheduler "^0.20.2"
+    scheduler "^0.22.0"
 
 react-is@^16.13.1, react-is@^16.7.0:
   version "16.13.1"
@@ -5403,13 +5409,12 @@ react-is@^17.0.1:
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-17.0.2.tgz#e691d4a8e9c789365655539ab372762b0efb54f0"
   integrity sha512-w2GsyukL62IJnlaff/nRegPQR94C/XXamvMWmSHRJ4y7Ts/4ocGRmTHvOs8PSE6pB3dWOrD/nueuU5sduBsQ4w==
 
-react@^17.0.2:
-  version "17.0.2"
-  resolved "https://registry.yarnpkg.com/react/-/react-17.0.2.tgz#d0b5cc516d29eb3eee383f75b62864cfb6800037"
-  integrity sha512-gnhPt75i/dq/z3/6q/0asP78D0u592D5L1pd7M8P+dck6Fu/jJeL6iVVK23fptSUZj8Vjf++7wXA8UNclGQcbA==
+react@^18.1.0:
+  version "18.1.0"
+  resolved "https://registry.yarnpkg.com/react/-/react-18.1.0.tgz#6f8620382decb17fdc5cc223a115e2adbf104890"
+  integrity sha512-4oL8ivCz5ZEPyclFQXaNksK3adutVS8l2xzZU0cqEFrE9Sb7fC0EFK5uEk74wIreL1DERyjvsU915j1pcT2uEQ==
   dependencies:
     loose-envify "^1.1.0"
-    object-assign "^4.1.1"
 
 readable-stream@^3.4.0:
   version "3.6.0"
@@ -5672,13 +5677,12 @@ saxes@^5.0.1:
   dependencies:
     xmlchars "^2.2.0"
 
-scheduler@^0.20.2:
-  version "0.20.2"
-  resolved "https://registry.yarnpkg.com/scheduler/-/scheduler-0.20.2.tgz#4baee39436e34aa93b4874bddcbf0fe8b8b50e91"
-  integrity sha512-2eWfGgAqqWFGqtdMmcL5zCMK1U8KlXv8SQFGglL3CEtd0aDVDWgeF/YoCmvln55m5zSk3J/20hTaSBeSObsQDQ==
+scheduler@^0.22.0:
+  version "0.22.0"
+  resolved "https://registry.yarnpkg.com/scheduler/-/scheduler-0.22.0.tgz#83a5d63594edf074add9a7198b1bae76c3db01b8"
+  integrity sha512-6QAm1BgQI88NPYymgGQLCZgvep4FyePDWFpXVK+zNSUgHwlqpJy8VEh8Et0KxTACS4VWwMousBElAZOH9nkkoQ==
   dependencies:
     loose-envify "^1.1.0"
-    object-assign "^4.1.1"
 
 semver@7.0.0:
   version "7.0.0"
