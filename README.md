@@ -17,7 +17,7 @@ A small, responsive and highly configurable React form control. **react-smart-se
 - Highly configurable styles
 - Beautiful default styles
 - Accessible WAI ARIA compliance
-- Powered by [popper](https://popper.js.org/) and [styled-components](https://styled-components.com/)
+- Powered by [Floating-UI](https://floating-ui.com/) and [styled-components](https://styled-components.com/)
 
 ## Examples
 
@@ -63,11 +63,11 @@ On small screens **react-smart-select** switches to a responsive layout.
 
 Install the library and its peer dependencies:
 
-`npm install --save-dev react-smart-select styled-components @popperjs/core react-popper`
+`npm install --save-dev react-smart-select styled-components @floating-ui/react-dom`
 
 or:
 
-`yarn add --dev react-smart-select styled-components @popperjs/core react-popper`
+`yarn add --dev react-smart-select styled-components @floating-ui/react-dom`
 
 Example usage:
 
