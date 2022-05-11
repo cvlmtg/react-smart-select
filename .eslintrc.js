@@ -502,7 +502,11 @@ module.exports = {
     'space-before-blocks': 'error',
     'space-before-function-paren': [
       'error',
-      'never'
+      {
+        asyncArrow: 'always',
+        anonymous: 'never',
+        named: 'never'
+      }
     ],
     'space-in-parens': [
       'error',
