@@ -5,7 +5,8 @@ import Wrapper from './styled/wrapper';
 import Label from './styled/label';
 import Option from './option';
 import React, {
-  useLayoutEffect, useCallback, FunctionComponent
+  useLayoutEffect, useCallback, FunctionComponent,
+  ChangeEvent
 } from 'react';
 
 // ---------------------------------------------------------------------
@@ -49,9 +50,10 @@ const SmartSelect: FunctionComponent<SelectProps> = (props) => {
 
   const btnId = useRandomId();
 
-  const onClick = useCallback((evt) => {
-    const index    = evt.currentTarget.dataset.index;
-    const selected = options[index];
+  const onClick = useCallback((evt: ChangeEvent<HTMLInputElement>) => {
+    const index    = evt.currentTarget.dataset.index || '0';
+    const num      = parseInt(index, 10);
+    const selected = options[num];
 
     // if "toggle" is true, the first element of the list selects
     // and deselects the whole list. if any other element of the

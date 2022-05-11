@@ -1,9 +1,11 @@
-import React, { CSSProperties, FunctionComponent } from 'react';
+import React, {
+  CSSProperties, FunctionComponent, ChangeEventHandler
+} from 'react';
+import type {
+  RSSOption, RSSOptions, RSSValue, FormatOption
+} from './typings';
 import Single from './styled/single';
 import Multi from './styled/multi';
-import type {
-  RSSOption, RSSOptions, RSSValue, FormatOption, EvtHandler
-} from './typings';
 
 // ---------------------------------------------------------------------
 
@@ -15,7 +17,7 @@ function formatSimple(option: RSSOption) {
 }
 
 type OptionProps = {
-  onClick: EvtHandler;
+  onClick: ChangeEventHandler<HTMLInputElement>;
   option: RSSOption;
   index: number;
   value?: RSSValue;
