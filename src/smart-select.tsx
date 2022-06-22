@@ -123,7 +123,7 @@ const SmartSelect: FunctionComponent<SelectProps> = (props) => {
       <Background open={open} />
       <Dropdown role="menu" ref={floating} className={DROPDOWN_CLASS}
         aria-labelledby={btnId} aria-hidden={hidden}
-        open={open} style={dropdown}>
+        style={dropdown}>
         {options.map(renderOption)}
       </Dropdown>
     </Wrapper>
