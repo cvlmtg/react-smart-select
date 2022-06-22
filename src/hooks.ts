@@ -42,7 +42,7 @@ export function useClickOutside(ref: RefObject<HTMLElement>, onClick?: EvtHandle
     return () => {
       document.removeEventListener('mousedown', handler, true);
     };
-  }, [ onClick, ref ]);
+  }, [ ref, onClick ]);
 }
 
 export function useToggle(initialValue = false): [ boolean, EvtHandler ] {
