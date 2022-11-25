@@ -40,7 +40,7 @@
     "prepare": "dts build --rollupTypes",
     "size": "size-limit",
     "start": "bash ./demo/start.sh",
-    "test": "env NODE_ENV=test mocha --config mocha.json 'test/**/*.ts?(x)'",
+    "test": "env NODE_ENV=test mocha --config mocha.json \"test/**/*.{ts,tsx}\"",
     "watch": "dts watch"
   },
   "peerDependencies": {
