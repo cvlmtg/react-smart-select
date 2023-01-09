@@ -77,13 +77,10 @@ const SmartSelect: FunctionComponent<SelectProps> = (props) => {
   useClickOutside(refs.floating, open ? onToggle : undefined);
 
   useLayoutEffect(() => {
-    const ref = refs.floating.current;
-
-    if (ref) {
-      ref.style.display = open ? 'block' : '';
+    if (open === true) {
       update();
     }
-  }, [ open, refs, update ]);
+  }, [ open, update ]);
 
   // -------------------------------------------------------------------
 
@@ -108,6 +105,7 @@ const SmartSelect: FunctionComponent<SelectProps> = (props) => {
   const roundY   = y === null ? 0 : Math.round(y);
   const dropdown = {
     ...props.dropdownStyle,
+    display:  open ? 'block' : undefined,
     position: strategy,
     left:     roundX,
     top:      roundY
@@ -123,7 +121,7 @@ const SmartSelect: FunctionComponent<SelectProps> = (props) => {
       <Background open={open} />
       <Dropdown role="menu" ref={floating} className={DROPDOWN_CLASS}
         aria-labelledby={btnId} aria-hidden={hidden}
-        open={open} style={dropdown}>
+        style={dropdown}>
         {options.map(renderOption)}
       </Dropdown>
     </Wrapper>
