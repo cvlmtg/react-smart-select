@@ -1,3 +1,9 @@
+## [1.4.1] - 2023-03-01
+
+### Changed
+
+- Upgrade floating-ui to include some bug fixes
+
 ## [1.4.0] - 2023-01-09
 
 ### Changed
