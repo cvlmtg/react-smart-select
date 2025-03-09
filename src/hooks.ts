@@ -52,8 +52,8 @@ export function useToggle(initialValue = false): [ boolean, EvtHandler ] {
     if (evt) {
       evt.preventDefault();
     }
-    setValue(!value);
-  }, [ value ]);
+    setValue((current) => !current);
+  }, []);
 
   return [ value, onToggle ];
 }
